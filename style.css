@@ -5,3 +5,35 @@
   margin: 0;
   padding: 0;
 }
+
+#grid-container {
+  display: flex;
+  flex-wrap: wrap; /* Forces items to drop to the next row */
+  gap: 4px; /* Reduced gap size to fit 16 items nicely */
+  width: 600px; /* Expanded container size for better visibility */
+  height: 600px;
+  margin: 20px auto;
+  box-sizing: border-box;
+}
+
+/* Style for the 256 dynamically generated inner divs */
+.grid-box {
+  /* 
+               calc(6.25% - 3.75px) ensures 16 boxes fit exactly in one row.
+               6.25% comes from 100% / 16 items.
+               3.75px comes from: (15 gaps * 4px) / 16 items = 3.75px
+            */
+  flex: 0 0 calc(6.25% - 3.75px);
+  height: calc(6.25% - 3.75px); /* Makes rows perfectly equal height */
+  box-sizing: border-box;
+
+  background-color: #2ecc71;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 10px; /* Smaller text for smaller boxes */
+  font-weight: bold;
+  border-radius: 2px;
+}
